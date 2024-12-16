@@ -12,4 +12,4 @@ export const ApiContextProvider = ({ children }) => {
   );
 };
 
-/* export const useApiContext = () => useContext(ApiContext);*/
+export const useApiContext = () => useContext(ApiContext);

@@ -58,15 +58,15 @@ aggiuntive già prese nei punti precedenti più la overview */
 
 // import { useState } from 'react'
 import { useContext } from "react";
+import { ApiContextProvider } from "../context/ApiContext";
 import { ApiContext } from "../context/ApiContext";
+
 function App() {
-  const { pageTitle } = useContext(ApiContext);
-  console.log(pageTitle);
   return (
     <>
       <ApiContextProvider>
         <div className="container">
-          <h1 className="mt-5"></h1>
+          <h1 className="mt-5">Boolflix</h1>
         </div>
       </ApiContextProvider>
     </>

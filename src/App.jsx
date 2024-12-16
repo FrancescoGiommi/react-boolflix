@@ -57,15 +57,19 @@ la poster_path con w342)
 aggiuntive già prese nei punti precedenti più la overview */
 
 // import { useState } from 'react'
-import { ApiContext } from "../context/ApiContext";
+import { useContext } from "react";
+import { useApiContext } from "../context/ApiContext";
 
 function App() {
-  const { title } = useApiContext(ApiContext);
-  console.log(title);
-
   return (
     <div className="container">
-      <h1 className="mt-5">{title}</h1>
+      <h1 className="mt-5">Booflix</h1>
+      <div>
+        <input onChange={() => handleData} type="text" />
+      </div>
+      <div>
+        <button onClick={() => handleSearch}>Cerca</button>
+      </div>
     </div>
   );
 }

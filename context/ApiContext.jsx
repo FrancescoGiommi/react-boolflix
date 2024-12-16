@@ -1,9 +1,19 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
-  const title = "Booflix";
+  const [apiData, setApiData] = useState([]);
 
-  return <ApiContext.Provider value={title}>{children}</ApiContext.Provider>;
+  const handleData = () => {};
+  return <ApiContext.Provider>{children}</ApiContext.Provider>;
 };
+
+export const useApiContext = () => useContext(ApiContext);
+
+/*
+  const fetchApi = () => {
+    fetch(REACT_APP_API_URL)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };*/

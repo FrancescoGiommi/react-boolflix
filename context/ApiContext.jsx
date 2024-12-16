@@ -1,5 +1,15 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
-const ApiContext = createContext();
+export const ApiContext = createContext();
 
-export default ApiContext;
+export const ApiContextProvider = ({ children }) => {
+  const pageTitle = {
+    title: "Booflix",
+  };
+
+  return (
+    <ApiContext.Provider value={pageTitle}>{children}</ApiContext.Provider>
+  );
+};
+
+/* export const useApiContext = () => useContext(ApiContext);*/

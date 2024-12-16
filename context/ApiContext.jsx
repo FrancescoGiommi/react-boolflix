@@ -11,5 +11,3 @@ export const ApiContextProvider = ({ children }) => {
     <ApiContext.Provider value={pageTitle}>{children}</ApiContext.Provider>
   );
 };
-
-export const useApiContext = () => useContext(ApiContext);

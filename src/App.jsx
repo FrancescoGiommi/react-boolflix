@@ -57,18 +57,15 @@ la poster_path con w342)
 aggiuntive già prese nei punti precedenti più la overview */
 
 // import { useState } from 'react'
-import { useContext } from "react";
-import { ApiContextProvider } from "../context/ApiContext";
-import { ApiContext } from "../context/ApiContext";
 
 function App() {
+  const { pageTitle } = useApiContext();
+  console.log(pageTitle);
   return (
     <>
-      <ApiContextProvider>
-        <div className="container">
-          <h1 className="mt-5">Boolflix</h1>
-        </div>
-      </ApiContextProvider>
+      <div className="container">
+        <h1 className="mt-5">{pageTitle}</h1>
+      </div>
     </>
   );
 }

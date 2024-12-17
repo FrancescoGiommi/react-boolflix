@@ -72,7 +72,7 @@ function App() {
   const handleDataInput = (e) => {
     setDataInput(e.target.value);
   };
-  const { search } = useApiContext();
+  const { movies, search } = useApiContext();
 
   return (
     <div className="container">
@@ -85,6 +85,16 @@ function App() {
           <button onClick={() => search()}>Cerca</button>
         </div>
       </form>
+      <div>
+        {movies.map((movie) => (
+          <ul key={movie.id}>
+            <li>{movie.title}</li>
+            <li>{movie.original_title}</li>
+            <li>{movie.original_language}</li>
+            <li>{movie.vote_average}</li>
+          </ul>
+        ))}
+      </div>
     </div>
   );
 }

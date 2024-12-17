@@ -62,6 +62,13 @@ import { useApiContext } from "../context/ApiContext";
 
 function App() {
   const [dataInput, setDataInput] = useState("");
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    search(dataInput);
+  };
+
   const handleDataInput = (e) => {
     setDataInput(e.target.value);
   };
@@ -70,12 +77,14 @@ function App() {
   return (
     <div className="container">
       <h1 className="mt-5">Booflix</h1>
-      <div>
-        <input onChange={handleDataInput} type="text" value={dataInput} />
-      </div>
-      <div>
-        <button onClick={() => search()}>Cerca</button>
-      </div>
+      <form onSubmit={handleFormSubmit}>
+        <div>
+          <input onChange={handleDataInput} type="text" value={dataInput} />
+        </div>
+        <div>
+          <button onClick={() => search()}>Cerca</button>
+        </div>
+      </form>
     </div>
   );
 }

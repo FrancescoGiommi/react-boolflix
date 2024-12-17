@@ -1,4 +1,3 @@
-import { useContext, useState } from "react";
 import { useApiContext } from "../../context/ApiContext";
 import ListProduction from "./ListProduction";
 export default function Main() {

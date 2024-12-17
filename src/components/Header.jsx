@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useApiContext } from "../../context/ApiContext";
 
 export default function Header() {

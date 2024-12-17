@@ -57,8 +57,7 @@ la poster_path con w342)
 aggiuntive già prese nei punti precedenti più la overview */
 
 // import { useState } from 'react'
-import { useContext, useState } from "react";
-import { useApiContext } from "../context/ApiContext";
+
 import Header from "./components/Header";
 import Main from "./components/Main";
 

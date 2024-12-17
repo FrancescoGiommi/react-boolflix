@@ -4,11 +4,12 @@ import { useApiContext } from "../../context/ApiContext";
 export default function Header() {
   const [dataInput, setDataInput] = useState("");
 
-  const { search } = useApiContext();
+  const { searchMovie, searchSeries } = useApiContext();
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    search(dataInput);
+    searchMovie(dataInput);
+    searchSeries(dataInput);
   };
 
   const handleDataInput = (e) => {
@@ -22,7 +23,7 @@ export default function Header() {
           <input onChange={handleDataInput} type="text" value={dataInput} />
         </div>
         <div>
-          <button onClick={() => search()}>Cerca</button>
+          <button>Cerca</button>
         </div>
       </form>
     </>

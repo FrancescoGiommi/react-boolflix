@@ -59,42 +59,14 @@ aggiuntive già prese nei punti precedenti più la overview */
 // import { useState } from 'react'
 import { useContext, useState } from "react";
 import { useApiContext } from "../context/ApiContext";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
-  const [dataInput, setDataInput] = useState("");
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    search(dataInput);
-  };
-
-  const handleDataInput = (e) => {
-    setDataInput(e.target.value);
-  };
-  const { movies, search } = useApiContext();
-
   return (
     <div className="container">
-      <h1 className="mt-5">Booflix</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <input onChange={handleDataInput} type="text" value={dataInput} />
-        </div>
-        <div>
-          <button onClick={() => search()}>Cerca</button>
-        </div>
-      </form>
-      <div>
-        {movies.map((movie) => (
-          <ul key={movie.id}>
-            <li>{movie.title}</li>
-            <li>{movie.original_title}</li>
-            <li>{movie.original_language}</li>
-            <li>{movie.vote_average}</li>
-          </ul>
-        ))}
-      </div>
+      <Header />
+      <Main />
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function CardProduction({ production }) {
     if (production.original_language === "it") return "IT";
     if (production.original_language === "en") return "EN";
   };
-
+  const flags = flagLanguage();
   return (
     <>
       <ul key={production.id}>
@@ -22,7 +22,7 @@ export default function CardProduction({ production }) {
         <li>
           <b>Lingua: </b>
           {production.original_language}
-          {<img src={`https://flagsapi.com/${flagLanguage()}/shiny/64.png`} />}
+          {<img src={`https://flagsapi.com/${flags}/shiny/64.png`} />}
         </li>
         <li>
           <b>Punteggio: </b>

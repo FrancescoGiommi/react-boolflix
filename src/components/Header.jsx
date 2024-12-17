@@ -4,7 +4,7 @@ import { useApiContext } from "../../context/ApiContext";
 export default function Header() {
   const [dataInput, setDataInput] = useState("");
 
-  const { movies, search } = useApiContext();
+  const { search } = useApiContext();
   const handleFormSubmit = (e) => {
     e.preventDefault();
 

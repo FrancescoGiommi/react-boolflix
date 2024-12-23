@@ -8,9 +8,27 @@ export default function CardProduction({ production }) {
     if (production.original_language === "en") return "EN";
   };
   const flags = flagLanguage();
+
+  const posterImage = (poster) => {
+    const imgUrl = "https://image.tmdb.org/t/p";
+    const imgSize = "/w342";
+    return imgUrl + imgSize + poster;
+  };
+
+  const voteConverter = (oldScore) => {
+    const newScore = Math.round(oldScore / 2);
+    return newScore;
+  };
+
+  const oldScore = production.vote_average;
+  const newScore = voteConverter(oldScore);
   return (
     <>
       <ul key={production.id}>
+        <li>
+          <b>Immagine: </b>
+          {<img src={posterImage(production.poster_path)} />}
+        </li>
         <li>
           <b>Titolo: </b>
           {production.title}
@@ -26,7 +44,7 @@ export default function CardProduction({ production }) {
         </li>
         <li>
           <b>Punteggio: </b>
-          {production.vote_average}
+          {newScore}
         </li>
       </ul>
     </>

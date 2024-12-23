@@ -15,6 +15,24 @@ export default function CardSeries({ production }) {
     return imgUrl + imgSize + poster;
   };
 
+  const voteConverter = (oldScore) => {
+    const newScore = Math.round(oldScore / 2);
+    return newScore;
+  };
+  const renderStars = (score) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < score) {
+        stars.push(<i key={i} className="fas fa-star"></i>);
+      } else {
+        stars.push(<i key={i} className="far fa-star"></i>);
+      }
+    }
+    return stars;
+  };
+
+  const oldScore = production.vote_average;
+  const newScore = voteConverter(oldScore);
   return (
     <>
       <div className="cover-image">
@@ -38,7 +56,7 @@ export default function CardSeries({ production }) {
           </li>
           <li>
             <b>Punteggio: </b>
-            {production.vote_average}
+            {renderStars(newScore)}
           </li>
         </ul>
       </div>

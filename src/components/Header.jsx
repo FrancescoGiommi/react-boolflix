@@ -5,6 +5,7 @@ export default function Header() {
   const [dataInput, setDataInput] = useState("");
 
   const { searchMovie, searchSeries } = useApiContext();
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 

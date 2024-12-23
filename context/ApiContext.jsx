@@ -1,10 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const ApiContext = createContext();
 
 export const ApiContextProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
+
+  useEffect(() => {
+    fetchMovie, fetchSeries;
+  }, []);
 
   /* Fetch film */
   const fetchMovie = (term) => {
@@ -20,7 +24,9 @@ export const ApiContextProvider = ({ children }) => {
 
     fetch(url, options)
       .then((res) => res.json())
-      .then((data) => setApiData({ ...apiData, movies: data.results }));
+      .then((data) =>
+        setApiData((apiData) => ({ ...apiData, movies: data.results }))
+      );
   };
 
   /* Fetch series */
@@ -37,7 +43,9 @@ export const ApiContextProvider = ({ children }) => {
 
     fetch(url, options)
       .then((res) => res.json())
-      .then((data) => setApiData({ ...apiData, series: data.results }));
+      .then((data) =>
+        setApiData((apiData) => ({ ...apiData, series: data.results }))
+      );
   };
 
   const [apiData, setApiData] = useState({

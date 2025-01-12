@@ -20,33 +20,50 @@ export default function CardProduction({ production }) {
     return newScore;
   };
 
+  const renderStars = (score) => {
+    const stars = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < score) {
+        stars.push(<i key={i} className="fas fa-star"></i>);
+      } else {
+        stars.push(<i key={i} className="far fa-star"></i>);
+      }
+    }
+    return stars;
+  };
+
   const oldScore = production.vote_average;
   const newScore = voteConverter(oldScore);
   return (
     <>
-      <ul key={production.id}>
-        <li>
-          <b>Immagine: </b>
-          {<img src={posterImage(production.poster_path)} />}
-        </li>
-        <li>
-          <b>Titolo: </b>
-          {production.title}
-        </li>
-        <li>
-          <b>Titolo originale: </b>
-          {production.original_title}
-        </li>
-        <li>
-          <b>Lingua: </b>
-          {production.original_language}
-          {<img src={`https://flagsapi.com/${flags}/shiny/64.png`} />}
-        </li>
-        <li>
-          <b>Punteggio: </b>
-          {newScore}
-        </li>
-      </ul>
+      <div className="col-4 card-container ">
+        <div className="image-container">
+          <img
+            src={posterImage(production.poster_path)}
+            alt={`Poster di ${production.title}`}
+          />
+          <div className="overlay">
+            <ul>
+              <li>
+                <b>Titolo:</b> {production.title}
+              </li>
+              <li>
+                <b>Titolo originale:</b> {production.original_title}
+              </li>
+              <li>
+                <b>Lingua:</b> {production.original_language}
+                <img
+                  src={`https://flagsapi.com/${flags}/shiny/64.png`}
+                  alt="Bandiera"
+                />
+              </li>
+              <li>
+                <b>Punteggio:</b> {renderStars(newScore)}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

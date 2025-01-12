@@ -18,15 +18,27 @@ export default function Header() {
   };
   return (
     <>
-      <h1 className="mt-5">Booflix</h1>
-      <form onSubmit={handleFormSubmit}>
-        <div>
-          <input onChange={handleDataInput} type="text" value={dataInput} />
-        </div>
-        <div>
-          <button>Cerca</button>
-        </div>
-      </form>
+      <div
+        className="d-flex justify-content-between px-5 py-3 bg-dark"
+        data-bs-theme="dark"
+      >
+        <h1 className="text-danger">Booflix</h1>
+
+        <form onSubmit={handleFormSubmit} className="d-flex ">
+          <div>
+            <input
+              onChange={handleDataInput}
+              type="text"
+              value={dataInput}
+              class="form-control me-2"
+              placeholder="Cerca"
+            />
+          </div>
+          <div>
+            <button class="btn btn-outline-light ms-4">Cerca</button>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

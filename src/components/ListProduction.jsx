@@ -1,16 +1,17 @@
 import CardMovie from "./CardMovie";
 import CardSeries from "./CardSeries";
 
-export default function ListProduction({ children, Production }) {
+export default function ListProduction({ children, productions, type }) {
   return (
     <>
       <section>
         <div className="row d-flex">
           {children}
-          {Production.map(
-            (production) => (
-              (<CardMovie production={production} key={production.id} />),
-              (<CardSeries production={production} key={production.id} />)
+          {productions.map((production) =>
+            type === "movie" ? (
+              <CardMovie production={production} key={production.id} />
+            ) : (
+              <CardSeries production={production} key={production.id} />
             )
           )}
         </div>

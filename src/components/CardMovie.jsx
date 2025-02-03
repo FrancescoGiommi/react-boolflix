@@ -26,6 +26,8 @@ export default function CardMovie({ production }) {
     return imgUrl + imgSize + poster;
   };
 
+  const defaultImg = "src/assets/img/placeolder_img.png";
+
   const voteConverter = (oldScore) => Math.round(oldScore / 2);
 
   const renderStars = (score) => {
@@ -43,8 +45,13 @@ export default function CardMovie({ production }) {
     <div className="col-4 card-container">
       <div className="image-container">
         <img
-          src={posterImage(production.poster_path)}
+          src={
+            production.poster_path
+              ? posterImage(production.poster_path)
+              : defaultImg
+          }
           alt={`Poster di ${production.title}`}
+          onError={(e) => (e.target.src = defaultImg)}
         />
         <div className="overlay">
           <ul>

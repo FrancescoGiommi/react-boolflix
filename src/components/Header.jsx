@@ -30,12 +30,12 @@ export default function Header() {
               onChange={handleDataInput}
               type="text"
               value={dataInput}
-              class="form-control me-2"
+              className="form-control me-2"
               placeholder="Cerca"
             />
           </div>
           <div>
-            <button class="btn btn-outline-light ms-4">Cerca</button>
+            <button className="btn btn-outline-light ms-4">Cerca</button>
           </div>
         </form>
       </div>

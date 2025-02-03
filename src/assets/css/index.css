@@ -53,3 +53,7 @@ body {
   width: 32px;
   margin-left: 5px;
 }
+
+.height {
+  min-height: 100vh;
+}

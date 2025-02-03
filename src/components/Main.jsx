@@ -6,7 +6,7 @@ export default function Main() {
   const hasResults = movies.length > 0 || series.length > 0;
 
   return (
-    <div>
+    <div className="mt-5">
       {hasResults ? (
         <>
           {movies.length > 0 && (

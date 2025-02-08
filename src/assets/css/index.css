@@ -16,6 +16,7 @@ body {
   width: 100%;
   display: block;
   border-radius: 10px;
+  height: 450px;
 }
 
 .overlay {
@@ -51,7 +52,8 @@ body {
 
 .overlay img {
   width: 32px;
-  margin-left: 5px;
+  margin-left: 70px;
+  height: 40px;
 }
 
 .height {
